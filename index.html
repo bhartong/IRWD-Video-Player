@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>IRWD Video Player</title>
+
+    <script>
+        window.AdobeEdge = window.AdobeEdge || {};
+        window.AdobeEdge.bootstrapLoading = true;
+    </script>
+
+<!--Adobe Edge Runtime-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script type="text/javascript" charset="utf-8" src="index_edgePreload.js"></script>
+    <style>
+        .edgeLoad-Index { visibility:hidden; }
+    </style>
+<!--Adobe Edge Runtime End-->
+
+    <script>
+        yepnope({
+            load: [
+                'edge_includes/jquery-2.0.3.min.js',
+                'edge_includes/edge.4.0.0.min.js'
+            ],
+            complete: function () {
+
+                AdobeEdge.loadResources();
+                AdobeEdge.playWhenReady();
+
+                yepnope({
+                    load: [
+                        'scripts/Controller.js'
+                    ],
+                    complete: function () {
+
+                        AdobeEdge.Controller = new Controller();
+                        AdobeEdge.Controller.init();
+                    }
+                });
+            }
+        });
+    </script>
+
+</head>
+<body style="margin:0;padding:0;">
+	<div id="Stage" class="Index">
+	</div>
+</body>
+</html>
